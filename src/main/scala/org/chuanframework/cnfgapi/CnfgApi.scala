@@ -1,18 +1,20 @@
-package org.chuanframework
+package org.chuanframework.cnfgapi
 
 import akka.actor.Actor
 import spray.routing._
 import spray.http._
-import MediaTypes._
+import spray.http.MediaTypes._
+import spray.httpx.marshalling.ToResponseMarshallable.isMarshallable
+import spray.routing.Directive.pimpApply
 
-class OpenApiActor extends Actor with OpenApi {
+class CnfgApiActor extends Actor with CnfgApi {
 
   def actorRefFactory = context
   def receive = runRoute(apiRoutes)
 
 }
 
-trait OpenApi extends HttpService {
+trait CnfgApi extends HttpService {
 
   val apiRoutes =
     path("info") {

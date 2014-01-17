@@ -4,6 +4,7 @@ import org.specs2.mutable.Specification
 import spray.testkit.Specs2RouteTest
 import spray.http._
 import StatusCodes._
+import org.chuanframework.openapi.OpenApi
 
 class MyServiceSpec extends Specification with Specs2RouteTest with OpenApi {
   def actorRefFactory = system
